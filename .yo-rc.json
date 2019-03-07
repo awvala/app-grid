@@ -1,0 +1,11 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "isCreatingSolution": true,
+    "environment": "spo",
+    "version": "1.7.1",
+    "libraryName": "app-grid",
+    "libraryId": "0dbc07c9-1be9-48ef-bc1a-b99a93453170",
+    "packageManager": "npm",
+    "componentType": "webpart"
+  }
+}

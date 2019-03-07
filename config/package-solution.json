@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "app-grid-client-side-solution",
+    "id": "0dbc07c9-1be9-48ef-bc1a-b99a93453170",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true
+  },
+  "paths": {
+    "zippedPackage": "solution/app-grid.sppkg"
+  }
+}
