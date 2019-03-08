@@ -11,20 +11,22 @@
     "test": "gulp test"
   },
   "dependencies": {
-    "@material-ui/core": "^3.9.2",
     "@microsoft/sp-core-library": "1.7.1",
     "@microsoft/sp-lodash-subset": "1.7.1",
     "@microsoft/sp-office-ui-fabric-core": "1.7.1",
     "@microsoft/sp-webpart-base": "1.7.1",
+    "@pnp/spfx-controls-react": "1.12.0",
     "@types/es6-promise": "0.0.33",
     "@types/react": "16.4.2",
     "@types/react-dom": "16.0.5",
     "@types/webpack-env": "1.13.1",
     "moment": "^2.24.0",
+    "office-ui-fabric-react": "^6.153.0",
     "react": "16.3.2",
     "react-dom": "16.3.2",
     "react-html-parser": "^2.0.2",
-    "react-moment": "^0.8.4"
+    "react-moment": "^0.8.4",
+    "typescript": "^3.1.6"
   },
   "resolutions": {
     "@types/react": "16.4.2"

@@ -18,7 +18,7 @@
     "group": { "default": "Other" },
     "title": { "default": "App Board" },
     "description": { "default": "A responsive grid board showing data from an Azure DevOps team." },
-    "officeFabricIconFontName": "Page",
+    "officeFabricIconFontName": "BacklogBoard",
     "properties": {
       "description": "App Board"
     }

@@ -10,6 +10,8 @@ import {
 import * as strings from 'AppBoardWebPartStrings';
 import AppBoard from './components/AppBoard';
 import { IAppBoardProps } from './components/IAppBoardProps';
+import { IAppBoardWebPartProps } from "./IAppBoardWebPartProps";
+import { Environment, EnvironmentType } from '@microsoft/sp-core-library';
 
 export interface IAppBoardWebPartProps {
   description: string;
@@ -21,7 +23,9 @@ export default class AppBoardWebPart extends BaseClientSideWebPart<IAppBoardWebP
     const element: React.ReactElement<IAppBoardProps > = React.createElement(
       AppBoard,
       {
-        description: this.properties.description
+        isWorkbench: Environment.type == EnvironmentType.Local,
+        description: this.properties.description,
+        context: this.context,
       }
     );
 
