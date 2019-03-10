@@ -15,92 +15,111 @@
       display: flex;
       flex-flow: row wrap;
       align-content: flex-start;
+      justify-content: space-between;
+      margin: 15px 5px;
       height: auto;
     }
 
-    .backlogItem {
-      margin: 10px;
+    .card {
+      display: flex;
+      flex-flow: column nowrap;
+      margin-top: 10px ;
+      height: auto;
+      border-radius: 2px;
+      text-align: left;
+      box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.2), 
+      0px 1px 1px 0px rgba(0,0,0,0.14), 
+      0px 2px 1px -1px rgba(0,0,0,0.12);
+      width: 32%;
+
+      //media queries for stacking cards
+      @media screen and (max-width: 991px) {
+        width: 49%;
+      }
+
+      @media screen and (max-width: 767px) {
+        width: 100%;
+      }
+    }
+
+    .blueHover {
+      transition: all 0.25s ease-in;
+      border-bottom: 0px solid transparent;
+
+      &:hover {
+        transform: translateY(-5px);
+        border: none;
+        border-bottom: 5px solid #fff;
+      }
+    }
+
+    .cardHeader {
+      background-color: #0078d4;
       padding: 10px;
-      height: 150px;
-      width: 150px;
-      
+      // height: 60px;
+      border-top-left-radius: 2px;
+      border-top-right-radius: 2px;
+      color: white;
+      text-align: center;
+    }
+
+    .dateContainer {
+      text-align: center;
+      background-color: #0078d4;
+      padding: 10px;
+      color: white;
     }
 
     .cardDescription {
-      margin-bottom: 20px;
+      max-height: 180px;;
+      overflow: hidden;
+      background-image: linear-gradient(to bottom, transparent, white);
+      padding: 10px;
+      }
+
+    .bottomCardContainer {
+      margin: 10px;
     }
 
-    .cardDetail {
-      display: flex;
-      justify-content: space-between;
+    .cardButton {
+      text-align: center;
+      text-transform: uppercase;
+      margin-top: auto;
+      width: 100%;
+      overflow: hidden;
     }
 
-    .dateStyle {
-      padding-top: 10px;
+    // ripple effect
+    .cardButton:after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 5px;
+      height: 5px;
+      background: rgba(255, 255, 255, .5);
+      opacity: 0;
+      border-radius: 100%;
+      transform: scale(1, 1) translate(-50%);
+      transform-origin: 50% 50%;
     }
-
-  // .row {
-  //   @include ms-Grid-row;
-  //   @include ms-fontColor-white;
-  //   background-color: $ms-color-themeDark;
-  //   padding: 20px;
-  // }
-
-  // .column {
-  //   @include ms-Grid-col;
-  //   @include ms-lg10;
-  //   @include ms-xl8;
-  //   @include ms-xlPush2;
-  //   @include ms-lgPush1;
-  // }
-
-  // .title {
-  //   @include ms-font-xl;
-  //   @include ms-fontColor-white;
-  // }
-
-  // .subTitle {
-  //   @include ms-font-l;
-  //   @include ms-fontColor-white;
-  // }
-
-  // .description {
-  //   @include ms-font-l;
-  //   @include ms-fontColor-white;
-  // }
-
-  // .button {
-  //   // Our button
-  //   text-decoration: none;
-  //   height: 32px;
-
-  //   // Primary Button
-  //   min-width: 80px;
-  //   background-color: $ms-color-themePrimary;
-  //   border-color: $ms-color-themePrimary;
-  //   color: $ms-color-white;
-
-  //   // Basic Button
-  //   outline: transparent;
-  //   position: relative;
-  //   font-family: "Segoe UI WestEuropean","Segoe UI",-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
-  //   -webkit-font-smoothing: antialiased;
-  //   font-size: $ms-font-size-m;
-  //   font-weight: $ms-font-weight-regular;
-  //   border-width: 0;
-  //   text-align: center;
-  //   cursor: pointer;
-  //   display: inline-block;
-  //   padding: 0 16px;
-
-  //   .label {
-  //     font-weight: $ms-font-weight-semibold;
-  //     font-size: $ms-font-size-m;
-  //     height: 32px;
-  //     line-height: 32px;
-  //     margin: 0 4px;
-  //     vertical-align: top;
-  //     display: inline-block;
-  //   }
-  // }
+    
+    @keyframes ripple {
+      0% {
+        transform: scale(0, 0);
+        opacity: 1;
+      }
+      20% {
+        transform: scale(25, 25);
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        transform: scale(40, 40);
+      }
+    }
+    
+    .cardButton:focus:not(:active)::after {
+      animation: ripple 1s ease-out;
+    }
 }

@@ -2,6 +2,7 @@ import * as React from 'react';
 import styles from './AppBoard.module.scss';
 import Moment from 'react-moment';
 import ReactHtmlParser from 'react-html-parser';
+import { PrimaryButton } from 'office-ui-fabric-react/lib/Button';
 
 export const BacklogItem = props => {
 
@@ -9,20 +10,22 @@ export const BacklogItem = props => {
     const html = props.description;
 
     return (
-        <div className={`rounded ${styles.backlogItem}`}>
-            <header>
-                <div className="ms-fontSize-m">
+        <div className={`${styles.card} ${styles.blueHover}`}>
+                <header className={`ms-font-l ${styles.cardHeader}`}>
                     {props.title}
+                </header>
+                <div className={`${styles.dateContainer}`}>
+                    <Moment format="MM/DD/YY">{props.target}</Moment>
                 </div>
-            </header>
-            <div className="ms-fontsize-s">
-                <p className={styles.cardDescription}>{ReactHtmlParser(html)}</p>
-                <div className={styles.cardDetail}>
-                    <div className={styles.dateStyle}>
-                        <i className="ms-Icon ms-Icon--AlarmClock" aria-hidden="true"></i> <Moment format="MM/DD/YY">{props.target}</Moment>
-                    </div>
-                </div>
+                    <p className={`ms-fontSize-sPlus ${styles.cardDescription}`}>{ReactHtmlParser(html)}</p>
+                <PrimaryButton
+                    className={styles.cardButton}
+                    data-automation-id={props.id}
+                    text="Read More"
+                    onClick={this._alertClicked}
+                    allowDisabledFocus={true}
+                />
             </div>
-        </div>
     );
 };
+
