@@ -80,7 +80,7 @@ export default class AppBoard extends React.Component<IAppBoardProps, IAppBoardS
                 <h2>{escape(this.props.description)}</h2>
                 <div className= {styles.pivotContainer}>
                   <HorizontalTabs
-                    backlog = {this.state.data}
+                    workitemsData = {this.state.data}
                   />
                 </div>
               </div>
@@ -108,8 +108,8 @@ export default class AppBoard extends React.Component<IAppBoardProps, IAppBoardS
         data: {
           lanes: [
             {
-              id: 'Planned Tasks',
-              title: 'Planned Tasks',
+              id: 'New',
+              title: 'New',
               // label: '2/2',
               cards: [
                 { id: 'Card1', title: 'Write Blog', description: 'Can AI make memes', label: '30 mins', area: 'Inventory' },
@@ -117,8 +117,8 @@ export default class AppBoard extends React.Component<IAppBoardProps, IAppBoardS
               ]
             },
             {
-              id: 'In Progress',
-              title: 'In Progress',
+              id: 'Active',
+              title: 'Active',
               // label: '0/0',
               cards: [
                 { id: 'Card1', title: 'Review movies', description: 'Can AI review cinematography?', label: '20 mins', area: 'Quality' },
@@ -202,7 +202,7 @@ export default class AppBoard extends React.Component<IAppBoardProps, IAppBoardS
         cards: [],
       });
     });
-    // console.log(boardData);
+    console.log(boardData);
     return boardData;
   }
 

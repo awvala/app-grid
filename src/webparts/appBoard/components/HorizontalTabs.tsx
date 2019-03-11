@@ -9,14 +9,16 @@ import { CompleteItem } from './Cards/CompleteItem';
 
 export const HorizontalTabs = props => {
 
-    //console.log(props.backlog.lanes[1]);
+    let NewIndex: number = props.workitemsData.lanes.findIndex((item) => item.title === "New");
+    let ActiveIndex: number = props.workitemsData.lanes.findIndex((item) => item.title === "Active");
+    let ClosedIndex: number = props.workitemsData.lanes.findIndex((item) => item.title === "Closed");
 
     return (
         <div>
             <Pivot linkFormat={PivotLinkFormat.tabs} linkSize={PivotLinkSize.large} defaultSelectedKey="In-Progress">
                 <PivotItem itemIcon="Backlog" headerText="Backlog" itemKey="Backlog">
                     <CardContainer>
-                        {props.backlog.lanes[1].cards.map((card) =>
+                        {props.workitemsData.lanes[NewIndex].cards.map((card) =>
                             <BacklogItem
                                 id={card.id}
                                 title={card.title}
@@ -33,7 +35,7 @@ export const HorizontalTabs = props => {
                 </PivotItem>
                 <PivotItem itemIcon="DeveloperTools" headerText="In-Progress" itemKey="In-Progress">
                     <CardContainer>
-                        {props.backlog.lanes[0].cards.map((card) =>
+                        {props.workitemsData.lanes[ActiveIndex].cards.map((card) =>
                             <InProcessItem
                                 id={card.id}
                                 title={card.title}
@@ -50,7 +52,7 @@ export const HorizontalTabs = props => {
                 </PivotItem>
                 <PivotItem itemIcon="Completed" headerText="Complete" itemKey="Complete">
                     <CardContainer>
-                        {props.backlog.lanes[2].cards.map((card) =>
+                        {props.workitemsData.lanes[ClosedIndex].cards.map((card) =>
                             <CompleteItem
                                 id={card.id}
                                 title={card.title}
