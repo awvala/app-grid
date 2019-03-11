@@ -50,17 +50,6 @@
       }
     }
 
-    // .blueHover {
-    //   transition: all 0.25s ease-in;
-    //   border-bottom: 0px solid transparent;
-
-    //   &:hover {
-    //     transform: translateY(-5px);
-    //     // border: none;
-    //     border-bottom: 5px solid #fff;
-    //   }
-    // }
-
     .cardHeader {
       background-color: #0078d4;
       padding: 10px;
@@ -120,6 +109,10 @@
       20% {
         transform: scale(25, 25);
         opacity: 1;
+      }
+      40% {
+        transform: scale(33, 33);
+        opacity: .75;
       }
       100% {
         opacity: 0;

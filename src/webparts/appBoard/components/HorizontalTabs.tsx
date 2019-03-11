@@ -9,7 +9,7 @@ import { CompleteItem } from './Cards/CompleteItem';
 
 export const HorizontalTabs = props => {
 
-    // console.log(props.backlog.lanes[1]);
+    //console.log(props.backlog.lanes[1]);
 
     return (
         <div>
