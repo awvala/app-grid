@@ -10,7 +10,7 @@ export const InProcessItem = props => {
     const html = props.description;
 
     return (
-        <div className={`${styles.card} ${styles.blueHover}`}>
+        <div className={`${styles.card} `}>
                 <header className={`ms-font-l ${styles.cardHeader}`}>
                     {props.title}
                 </header>

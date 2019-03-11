@@ -151,7 +151,7 @@ export default class AppBoard extends React.Component<IAppBoardProps, IAppBoardS
               client
                 .get(`https://dev.azure.com/AndrewVala/_apis/wit/workitems?ids=${wIDs}&$expand=relations&api-version=5.0`, AadHttpClient.configurations.v1)
                 .then((response: HttpClientResponse) => {
-                   console.log(response);
+                  // console.log(response);
                   return response.json();
                 })
                 .then(json => {
@@ -202,7 +202,7 @@ export default class AppBoard extends React.Component<IAppBoardProps, IAppBoardS
         cards: [],
       });
     });
-    // console.log(boardData);
+    console.log(boardData);
     return boardData;
   }
 

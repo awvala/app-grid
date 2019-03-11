@@ -33,7 +33,7 @@ export const HorizontalTabs = props => {
                 </PivotItem>
                 <PivotItem itemIcon="DeveloperTools" headerText="In-Progress" itemKey="In-Progress">
                     <CardContainer>
-                        {props.backlog.lanes[1].cards.map((card) =>
+                        {props.backlog.lanes[0].cards.map((card) =>
                             <InProcessItem
                                 id={card.id}
                                 title={card.title}
@@ -50,7 +50,7 @@ export const HorizontalTabs = props => {
                 </PivotItem>
                 <PivotItem itemIcon="Completed" headerText="Complete" itemKey="Complete">
                     <CardContainer>
-                        {props.backlog.lanes[0].cards.map((card) =>
+                        {props.backlog.lanes[2].cards.map((card) =>
                             <CompleteItem
                                 id={card.id}
                                 title={card.title}

@@ -6,11 +6,11 @@ import { PrimaryButton } from 'office-ui-fabric-react/lib/Button';
 
 export const BacklogItem = props => {
 
-    // decrlare variable and store string with HTML to convert with the ReactHTMLParse module.
+    // declare variable and store string with HTML to convert with the ReactHTMLParse module.
     const html = props.description;
 
     return (
-        <div className={`${styles.card} ${styles.blueHover}`}>
+        <div className={`${styles.card} `}>
                 <header className={`ms-font-l ${styles.cardHeader}`}>
                     {props.title}
                 </header>
