@@ -172,7 +172,7 @@ export default class AppBoard extends React.Component<IAppBoardProps, IAppBoardS
                           startdate: items.fields["Microsoft.VSTS.Scheduling.StartDate"],
                           targetdate: items.fields["Microsoft.VSTS.Scheduling.TargetDate"],
                           relations: items.relations,
-                          area: items.fields["Custom.Area"].toUpperCase()
+                          // area: items.fields["Custom.Area"].toUpperCase()
                         });
                       });
                       this.setState({
