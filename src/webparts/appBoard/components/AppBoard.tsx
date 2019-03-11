@@ -202,7 +202,7 @@ export default class AppBoard extends React.Component<IAppBoardProps, IAppBoardS
         cards: [],
       });
     });
-    console.log(boardData);
+    // console.log(boardData);
     return boardData;
   }
 

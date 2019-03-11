@@ -15,7 +15,7 @@ export const CompleteItem = props => {
                     {props.title}
                 </header>
                 <div className={`${styles.dateContainer}`}>
-                    <Moment format="MM/DD/YY">{props.target}</Moment>
+                    <Moment format="MM/DD/YY">{props.targetdate}</Moment>
                 </div>
                     <p className={`ms-fontSize-sPlus ${styles.cardDescription}`}>{ReactHtmlParser(html)}</p>
                 <PrimaryButton
