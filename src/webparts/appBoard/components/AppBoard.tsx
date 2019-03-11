@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styles from './AppBoard.module.scss';
-import { IAppBoardProps, WID, CardData } from './IAppBoardProps';
+import { IAppBoardProps, WID, BoardData } from './IAppBoardProps';
 import { Spinner, SpinnerSize } from 'office-ui-fabric-react/lib/components/Spinner';
 import { Placeholder } from '@pnp/spfx-controls-react/lib/Placeholder';
 import { escape } from '@microsoft/sp-lodash-subset';
@@ -13,9 +13,7 @@ import { HorizontalTabs } from './HorizontalTabs';
 export interface IAppBoardState {
   loading?: boolean;
   showPlaceholder?: boolean;
-  backlogData: { [] };
-  inProcessData: { [] };
-  completeData: { [] };
+  data: {};
 }
 
 export default class AppBoard extends React.Component<IAppBoardProps, IAppBoardState> {
@@ -29,9 +27,16 @@ export default class AppBoard extends React.Component<IAppBoardProps, IAppBoardS
     this.state = {
       loading: true,
       showPlaceholder: false,
-      backlogData: [],
-      inProcessData: [],
-      completeData: [],
+      data:
+      {
+        lanes: [
+          {
+            id: 'Loading...',
+            title: 'Loading...',
+            cards: [],
+          }
+        ]
+      }
     };
   }
 
@@ -61,7 +66,7 @@ export default class AppBoard extends React.Component<IAppBoardProps, IAppBoardS
           {this.state.loading ?
             (
               <Spinner size={SpinnerSize.large} label="Retrieving results ..." />
-            ) : this.state.backlogData || this.state.inProcessData || this.state.completeData === undefined ?
+            ) : this.state.data === undefined ?
               (
                 <Placeholder
                   iconName="InfoSolid"
@@ -73,11 +78,9 @@ export default class AppBoard extends React.Component<IAppBoardProps, IAppBoardS
               ) :
               <div className={styles.container}>
                 <h2>{escape(this.props.description)}</h2>
-                <div className={styles.pivotContainer}>
+                <div className= {styles.pivotContainer}>
                   <HorizontalTabs
-                    backlog={this.state.backlogData}
-                    inPorcess={this.state.inProcessData}
-                    complete={this.state.completeData}
+                    workitemsData = {this.state.data}
                   />
                 </div>
               </div>
@@ -102,18 +105,28 @@ export default class AppBoard extends React.Component<IAppBoardProps, IAppBoardS
     if (this.props.isWorkbench) {
       // get mock data in Workbench
       this.setState({
-        backlogData: [
-          { id: 'Card1', title: 'Write Blog', description: 'Can AI make memes', label: '30 mins', area: 'Inventory' },
-          { id: 'Card2', title: 'Pay Rent', description: 'Transfer via NEFT', label: '5 mins', area: 'PPM' }
-        ],
-        inProcessData: [
-          { id: 'Card3', title: 'Review movies', description: 'Can AI review cinematography?', label: '20 mins', area: 'Quality' },
-          { id: 'Card4', title: 'Go out to dinner', description: 'Can I turn my OS into Friday?', label: '5 mins', area: 'Shipment' }
-        ],
-        completeData: [
-          { id: 'Card5', title: 'Completed App', description: 'Good', label: '20 mins', area: 'Quality' },
-          { id: 'Card6', title: 'GCompleted for now app', description: 'Good enough job', label: '5 mins', area: 'Shipment' }
-        ],
+        data: {
+          lanes: [
+            {
+              id: 'New',
+              title: 'New',
+              // label: '2/2',
+              cards: [
+                { id: 'Card1', title: 'Write Blog', description: 'Can AI make memes', label: '30 mins', area: 'Inventory' },
+                { id: 'Card2', title: 'Pay Rent', description: 'Transfer via NEFT', label: '5 mins', area: 'PPM' }
+              ]
+            },
+            {
+              id: 'Active',
+              title: 'Active',
+              // label: '0/0',
+              cards: [
+                { id: 'Card1', title: 'Review movies', description: 'Can AI review cinematography?', label: '20 mins', area: 'Quality' },
+                { id: 'Card2', title: 'Go out to dinner', description: 'Can I turn my OS into Friday?', label: '5 mins', area: 'Shipment' }
+              ]
+            }
+          ]
+        },
         loading: false,
       });
       // console.log(this.state.data);
@@ -142,55 +155,55 @@ export default class AppBoard extends React.Component<IAppBoardProps, IAppBoardS
                   return response.json();
                 })
                 .then(json => {
-                  //this.buildLanes(json)
-                  //.then((boardData) => {
-                  let backlogItemsList: <CardData>[];
+                  this.buildLanes(json)
+                    .then((boardData) => {
+                      let workItemsList = boardData;
 
-                  json.value.map((items: any) => {
-                    const tempState = items.fields["System.State"];
-                    // let laneIndex = workItemsList.lanes.findIndex((item) => item.title === tempState);
+                      json.value.map((items: any) => {
+                        const tempState = items.fields["System.State"];
+                        let laneIndex = workItemsList.lanes.findIndex((item) => item.title === tempState);
 
-                    workItemsList.lanes[laneIndex].cards.push({
-                      id: items.id,
-                      title: items.fields["System.Title"],
-                      description: items.fields["System.Description"],
-                      workItemType: items.fields["System.WorkItemType"],
-                      state: items.fields["System.State"],
-                      startdate: items.fields["Microsoft.VSTS.Scheduling.StartDate"],
-                      targetdate: items.fields["Microsoft.VSTS.Scheduling.TargetDate"],
-                      relations: items.relations,
-                      // area: items.fields["Custom.Area"].toUpperCase()
+                        workItemsList.lanes[laneIndex].cards.push({
+                          id: items.id,
+                          title: items.fields["System.Title"],
+                          description: items.fields["System.Description"],
+                          workItemType: items.fields["System.WorkItemType"],
+                          state: items.fields["System.State"],
+                          startdate: items.fields["Microsoft.VSTS.Scheduling.StartDate"],
+                          targetdate: items.fields["Microsoft.VSTS.Scheduling.TargetDate"],
+                          relations: items.relations,
+                          // area: items.fields["Custom.Area"].toUpperCase()
+                        });
+                      });
+                      this.setState({
+                        data: workItemsList,
+                        loading: false,
+                      });
+                      // console.log(this.state.data);
                     });
-                  });
-                  this.setState({
-                    data: workItemsList,
-                    loading: false,
-                  });
-                  // console.log(this.state.data);
                 });
             });
         });
-    });
+    }
   }
-}
 
   // Get the State values from the API results to construct Lanes and place them into the BoardData structure.
-  // protected buildLanes = async (json): Promise<BoardData> => {
-  //   let uniqueStates = Array.from(new Set(json.value.map(item => item.fields["System.State"])));
-  //   // console.log(uniqueStates);
-  //   let boardData = {
-  //     lanes: [],
-  //   };
+  protected buildLanes = async (json): Promise<BoardData> => {
+    let uniqueStates = Array.from(new Set(json.value.map(item => item.fields["System.State"])));
+    // console.log(uniqueStates);
+    let boardData = {
+      lanes: [],
+    };
 
-  //   uniqueStates.map((items: any) => {
-  //     boardData.lanes.push({
-  //       id: items,
-  //       title: items,
-  //       cards: [],
-  //     });
-  //   });
-  //   // console.log(boardData);
-  //   return boardData;
-  // }
+    uniqueStates.map((items: any) => {
+      boardData.lanes.push({
+        id: items,
+        title: items,
+        cards: [],
+      });
+    });
+    console.log(boardData);
+    return boardData;
+  }
 
 }
