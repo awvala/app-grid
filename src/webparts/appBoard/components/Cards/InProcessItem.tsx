@@ -1,10 +1,10 @@
 import * as React from 'react';
-import styles from './AppBoard.module.scss';
+import styles from '../AppBoard.module.scss';
 import Moment from 'react-moment';
 import ReactHtmlParser from 'react-html-parser';
 import { PrimaryButton } from 'office-ui-fabric-react/lib/Button';
 
-export const BacklogItem = props => {
+export const InProcessItem = props => {
 
     // decrlare variable and store string with HTML to convert with the ReactHTMLParse module.
     const html = props.description;

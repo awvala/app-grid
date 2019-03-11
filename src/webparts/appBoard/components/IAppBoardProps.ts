@@ -32,5 +32,5 @@ export interface CardData {
   startdate?: Date;
   targetdate?: Date;
   relations?: any;
-  area?: string;
+  // area?: string;
 }
