@@ -11,9 +11,7 @@ export const HorizontalTabs = props => {
 
     let NewIndex: number = props.workitemsData.lanes.findIndex((item) => item.title === "New");
     let ActiveIndex: number = props.workitemsData.lanes.findIndex((item) => item.title === "Active");
-    let CompleteIndex: number = props.workitemsData.lanes.findIndex((item) => item.title === "Complete");
-
-    //console.log(props.workitemsData.lanes[1]);
+    let ClosedIndex: number = props.workitemsData.lanes.findIndex((item) => item.title === "Closed");
 
     return (
         <div>
@@ -54,7 +52,7 @@ export const HorizontalTabs = props => {
                 </PivotItem>
                 <PivotItem itemIcon="Completed" headerText="Complete" itemKey="Complete">
                     <CardContainer>
-                        {props.workitemsData.lanes[CompleteIndex].cards.map((card) =>
+                        {props.workitemsData.lanes[ClosedIndex].cards.map((card) =>
                             <CompleteItem
                                 id={card.id}
                                 title={card.title}
