@@ -53,9 +53,8 @@
     }
 
     .cardHeader {
-      background-color: #0078d4;
+      background-color: #648f3f;
       padding: 10px;
-      // height: 60px;
       border-top-left-radius: 2px;
       border-top-right-radius: 2px;
       color: white;
@@ -64,7 +63,7 @@
 
     .dateContainer {
       text-align: center;
-      background-color: #0078d4;
+      background-color: #648f3f;
       padding: 10px;
       color: white;
     }
@@ -86,7 +85,20 @@
       margin-top: auto;
       width: 100%;
       overflow: hidden;
+      background-color: #4a7524;
+
+      &:hover {
+        background-color: #2e530d;
     }
+    }
+
+    .secondaryButton {
+      background-color: #b3d396;
+
+      &:hover {
+        background-color: #4a7524;
+    }
+  }
 
   // Modals
     .modalWrapper {

@@ -2,8 +2,7 @@ import * as React from 'react';
 import styles from '../AppBoard.module.scss';
 import Moment from 'react-moment';
 import ReactHtmlParser from 'react-html-parser';
-import { PrimaryButton } from 'office-ui-fabric-react/lib/Button';
-import { DefaultButton } from 'office-ui-fabric-react/lib/Button';
+import { DefaultButton, PrimaryButton } from 'office-ui-fabric-react/lib/Button';
 import { Modal } from 'office-ui-fabric-react/lib/Modal';
 import './BackLogModal.css';  // Import regular stylesheet
 
@@ -41,7 +40,10 @@ export class BacklogModal extends React.Component<{ Title: string, html: any, id
             <p>{ReactHtmlParser(this.props.html)}</p>
           </div>
           <footer className="modalFooter">
-            <DefaultButton onClick={this._closeModal} text="Close" />
+            <DefaultButton 
+              onClick={this._closeModal} 
+              text="Close" 
+              className= {`${styles.secondaryButton}`}/>
           </footer> 
         </Modal>
         </div> 
