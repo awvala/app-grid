@@ -20,6 +20,27 @@
       height: auto;
     }
 
+    // Modals
+    .modalContainer {
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: flex-start;
+      justify-content: flex-start;
+      min-width: 400px;
+      max-width: 800px;
+    }
+
+    .modalHeader {
+      background-color: #0078d4;
+      color: white;
+      display: flex;
+      padding: 0px 30px;
+    }
+
+    .modalBody {
+      padding: 0px 30px;
+    }
+
     .card {
       display: flex;
       flex-flow: column nowrap;
@@ -86,39 +107,39 @@
       overflow: hidden;
     }
 
-    // ripple effect
-    .cardButton:after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 5px;
-      height: 5px;
-      background: rgba(255, 255, 255, .5);
-      opacity: 0;
-      border-radius: 100%;
-      transform: scale(1, 1) translate(-50%);
-      transform-origin: 50% 50%;
-    }
+    // // ripple effect
+    // .cardButton:after {
+    //   content: '';
+    //   position: absolute;
+    //   top: 50%;
+    //   left: 50%;
+    //   width: 5px;
+    //   height: 5px;
+    //   background: rgba(255, 255, 255, .5);
+    //   opacity: 0;
+    //   border-radius: 100%;
+    //   transform: scale(1, 1) translate(-50%);
+    //   transform-origin: 50% 50%;
+    // }
     
-    @keyframes ripple {
-      0% {
-        transform: scale(0, 0);
-        opacity: 1;
-      }
-      20% {
-        transform: scale(25, 25);
-        opacity: 1;
-      }
-      40% {
-        transform: scale(33, 33);
-        opacity: .75;
-      }
-      100% {
-        opacity: 0;
-        transform: scale(40, 40);
-      }
-    }
+    // @keyframes ripple {
+    //   0% {
+    //     transform: scale(0, 0);
+    //     opacity: 1;
+    //   }
+    //   20% {
+    //     transform: scale(25, 25);
+    //     opacity: 1;
+    //   }
+    //   40% {
+    //     transform: scale(33, 33);
+    //     opacity: .75;
+    //   }
+    //   100% {
+    //     opacity: 0;
+    //     transform: scale(40, 40);
+    //   }
+    // }
     
     .cardButton:focus:not(:active)::after {
       animation: ripple 1s ease-out;

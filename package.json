@@ -23,6 +23,7 @@
     "moment": "^2.24.0",
     "office-ui-fabric-react": "^6.153.0",
     "react": "16.3.2",
+    "react-awesome-modal": "^2.0.5",
     "react-dom": "16.3.2",
     "react-html-parser": "^2.0.2",
     "react-moment": "^0.8.4",

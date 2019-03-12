@@ -14,12 +14,16 @@ export const HorizontalTabs = props => {
     let ClosedIndex: number = props.workitemsData.lanes.findIndex((item) => item.title === "Closed");
 
     return (
+        
         <div>
             <Pivot linkFormat={PivotLinkFormat.tabs} linkSize={PivotLinkSize.large} defaultSelectedKey="In-Progress">
                 <PivotItem itemIcon="Backlog" headerText="Backlog" itemKey="Backlog">
                     <CardContainer>
                         {props.workitemsData.lanes[NewIndex].cards.map((card) =>
                             <BacklogItem
+                                ShowModal={props.ShowModal}
+                                _ShowModal={props._ShowModal}
+                                _CloseModal={props._CloseModal}
                                 id={card.id}
                                 title={card.title}
                                 description={card.description}
