@@ -5,12 +5,12 @@ import ReactHtmlParser from 'react-html-parser';
 import { BacklogModal } from './BacklogModal';
 
 export const BacklogItem = props => {
-    
+
     // declare variable and store string with HTML to convert with the ReactHTMLParse module.
     const html = props.description;
 
     return (
-        <div className={`${styles.card} `}>
+        <div className={`${styles.card}`}>
             <header className={`ms-font-l ${styles.cardHeader}`}>
                 {props.title}
             </header>
@@ -20,11 +20,13 @@ export const BacklogItem = props => {
                 }
             </div>
             <p className={`ms-fontSize-sPlus ${styles.cardDescription}`}>{ReactHtmlParser(html)}</p>
-            <BacklogModal
-                Title = {props.title}
-                id = {props.id}
-                html = {html}
-            />
+            <div className={styles.modalWrapper}>
+                <BacklogModal
+                    Title={props.title}
+                    id={props.id}
+                    html={html}
+                />
+            </div>
         </div>
     );
 };

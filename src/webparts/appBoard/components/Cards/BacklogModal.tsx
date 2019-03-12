@@ -19,7 +19,7 @@ export interface IBacklogModalState {
     return (
       <div>
         <PrimaryButton
-            className={styles.cardButton}
+            className={`${styles.cardButton} ms-slideUpIn20`}
             data-automation-id={this.props.id}
             secondaryText="See additional app information"
             text="Read More"
@@ -32,7 +32,7 @@ export interface IBacklogModalState {
           isOpen={this.state.showModal}
           onDismiss={this._closeModal}
           isBlocking={false}
-          containerClassName="ms-modalExample-container"
+          containerClassName="ms-slideUpIn20"
         >
           <header className="ms-modalExample-header">
             <h2>{this.props.Title}</h2>

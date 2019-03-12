@@ -14,7 +14,6 @@ import { HorizontalTabs } from './HorizontalTabs';
 export interface IAppBoardState {
   loading?: boolean;
   showPlaceholder?: boolean;
-  showModal: boolean;
   data: {};
 }
 
@@ -29,7 +28,6 @@ export default class AppBoard extends React.Component<IAppBoardProps, IAppBoardS
     this.state = {
       loading: true,
       showPlaceholder: false,
-      showModal: false,
       data:
       {
         lanes: [
@@ -41,14 +39,7 @@ export default class AppBoard extends React.Component<IAppBoardProps, IAppBoardS
         ]
       }
     };
-
-    this._showModal = this._showModal.bind(this);
-    this._closeModal = this._closeModal.bind(this);
   }
-
-  // Use getId() to ensure that the IDs are unique on the page.
-  // (It's also okay to use plain strings without getId() and manually ensure uniqueness.)
-  private _titleId: string = getId('id');
 
   /*
    * Opens the web part property pane
@@ -91,9 +82,6 @@ export default class AppBoard extends React.Component<IAppBoardProps, IAppBoardS
                 <div className= {styles.pivotContainer}>
                   <HorizontalTabs
                     workitemsData = {this.state.data}
-                    ShowModal= {this.state.showModal}
-                    _ShowModal = {this._showModal}
-                    _CloseModal = {this._closeModal}
                   />
                 </div>
               </div>
@@ -111,14 +99,6 @@ export default class AppBoard extends React.Component<IAppBoardProps, IAppBoardS
     if (this.state.loading) {
       this.loadData();
     }
-  }
-
-  private _showModal = (): void => {
-    this.setState({ showModal: true });
-  }
-
-  private _closeModal = (): void => {
-    this.setState({ showModal: false });
   }
 
   @autobind
