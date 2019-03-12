@@ -1,0 +1,27 @@
+.modalContainer {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .modalHeader {
+    background-color: #0078d4;
+    color: white;
+    display: flex;
+    padding: 0px 30px;
+  }
+
+  .modalBody {
+    padding: 0px 30px;
+    overflow: hidden;
+  }
+
+  .modalFooter {
+    text-align: right;
+    padding: 10px 30px;
+  }

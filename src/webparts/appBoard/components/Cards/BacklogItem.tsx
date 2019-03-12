@@ -2,7 +2,7 @@ import * as React from 'react';
 import styles from '../AppBoard.module.scss';
 import Moment from 'react-moment';
 import ReactHtmlParser from 'react-html-parser';
-import { BacklogModal } from './BacklogModal';
+import { BacklogModal } from '../Modals/BackLogModal';
 
 export const BacklogItem = props => {
 

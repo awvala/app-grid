@@ -21,9 +21,6 @@ export const HorizontalTabs = props => {
                     <CardContainer>
                         {props.workitemsData.lanes[NewIndex].cards.map((card) =>
                             <BacklogItem
-                                ShowModal={props.ShowModal}
-                                _ShowModal={props._ShowModal}
-                                _CloseModal={props._CloseModal}
                                 id={card.id}
                                 title={card.title}
                                 description={card.description}
