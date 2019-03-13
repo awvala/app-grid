@@ -25,6 +25,7 @@ export const CompleteItem = props => {
                     Title={props.title}
                     id={props.id}
                     html={html}
+                    TargetDate={props.TargetDate}
                 />
             </div>
         </div>

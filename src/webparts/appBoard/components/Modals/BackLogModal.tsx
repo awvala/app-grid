@@ -10,7 +10,7 @@ export interface IBacklogModalState {
   showModal: boolean;
 }
 
-export class BacklogModal extends React.Component<{ Title: string, html: any, id: string }, IBacklogModalState> {
+export class BacklogModal extends React.Component<{ Title: string, html: any, id: string, TargetDate: string }, IBacklogModalState> {
   public state: IBacklogModalState = {
     showModal: false
   };
@@ -36,18 +36,23 @@ export class BacklogModal extends React.Component<{ Title: string, html: any, id
           <header className="modalHeader">
             <h2>{this.props.Title}</h2>
           </header>
+          <div className={`ms-fontSize-s modalDate`}>
+            {this.props.TargetDate ? <Moment format="MM/DD/YY">{this.props.TargetDate}</Moment>
+              : "TBD"
+            }
+          </div>
           <div className="modalBody">
-            <p>{ReactHtmlParser(this.props.html)}</p>
+            {ReactHtmlParser(this.props.html)}
           </div>
           <footer className="modalFooter">
-            <DefaultButton 
-              onClick={this._closeModal} 
-              text="Close" 
-              className= "secondaryButton"
-              />
-          </footer> 
+            <DefaultButton
+              onClick={this._closeModal}
+              text="Close"
+              className="secondaryButton"
+            />
+          </footer>
         </Modal>
-        </div> 
+      </div>
     );
   }
 
