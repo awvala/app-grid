@@ -4,7 +4,7 @@ import Moment from 'react-moment';
 import ReactHtmlParser from 'react-html-parser';
 import { DefaultButton, PrimaryButton } from 'office-ui-fabric-react/lib/Button';
 import { Modal } from 'office-ui-fabric-react/lib/Modal';
-import './BackLogModal.css';  // Import regular stylesheet
+import './BackLogModalStyle.css';  // Import regular stylesheet
 
 export interface IBacklogModalState {
   showModal: boolean;
@@ -31,7 +31,7 @@ export class BacklogModal extends React.Component<{ Title: string, html: any, id
           isOpen={this.state.showModal}
           onDismiss={this._closeModal}
           isBlocking={false}
-          containerClassName={`modalContainer ms-slideUpIn20"`}
+          containerClassName={`modalContainer ms-slideUpIn20`}
         >
           <header className="modalHeader">
             <h2>{this.props.Title}</h2>
@@ -43,7 +43,8 @@ export class BacklogModal extends React.Component<{ Title: string, html: any, id
             <DefaultButton 
               onClick={this._closeModal} 
               text="Close" 
-              className= {`${styles.secondaryButton}`}/>
+              className= "secondaryButton"
+              />
           </footer> 
         </Modal>
         </div> 

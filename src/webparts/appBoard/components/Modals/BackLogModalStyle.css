@@ -1,12 +1,11 @@
 .modalContainer {
-    position: fixed;
-    top: 50%;
-    left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
     flex-flow: column nowrap;
-    align-items: flex-start;
+    align-content: flex-start;
     justify-content: flex-start;
+    min-width: 230px;
+    max-width: 50%;
   }
 
   .modalHeader {
@@ -17,11 +16,20 @@
   }
 
   .modalBody {
-    padding: 0px 30px;
+    padding: 0px 20px;
     overflow: hidden;
   }
 
   .modalFooter {
     text-align: right;
-    padding: 10px 30px;
+    padding: 10px 20px;
+  }
+
+  .secondaryButton {
+    background-color: #b3d396;
+  }
+
+  .secondaryButton:hover {
+    background-color: #2e530d;
+    color: white;
   }

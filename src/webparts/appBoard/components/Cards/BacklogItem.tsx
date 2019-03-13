@@ -2,7 +2,7 @@ import * as React from 'react';
 import styles from '../AppBoard.module.scss';
 import Moment from 'react-moment';
 import ReactHtmlParser from 'react-html-parser';
-import { BacklogModal } from '../Modals/BackLogModal';
+import { BacklogModal } from '../Modals/BacklogModal';
 
 export const BacklogItem = props => {
 
@@ -13,13 +13,13 @@ export const BacklogItem = props => {
         <div className={`${styles.card}`}>
             <header className={`ms-font-l ${styles.cardHeader}`}>
                 {props.title}
-            </header>
-            <div className={`${styles.dateContainer}`}>
+                <div className={`ms-fontSize-sPlus ${styles.dateContainer}`}>
                 {props.targetdate ? <Moment format="MM/DD/YY">{props.targetdate}</Moment>
                     : "TBD"
                 }
             </div>
-            <p className={`ms-fontSize-sPlus ${styles.cardDescription}`}>{ReactHtmlParser(html)}</p>
+            </header>
+            <p className={`${styles.cardDescription}`}>{ReactHtmlParser(html)}</p>
             <div className={styles.modalWrapper}>
                 <BacklogModal
                     Title={props.title}
