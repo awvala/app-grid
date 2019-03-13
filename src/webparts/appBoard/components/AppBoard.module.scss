@@ -21,7 +21,7 @@
       height: auto;
 
       &:hover .card{
-        filter:blur(3px);
+        //filter:blur(1px);
         opacity:.5;
         transform: scale(.98);
         box-shadow:none;
@@ -53,10 +53,10 @@
       transition: all 0.25s ease-in;
       border-bottom: 0px solid transparent;
 
-      &:hover {
+      // &:hover {
       // transform: translateY(-5px);
       // border-bottom: 5px solid #fff;
-      }
+      // }
 
       //media queries for stacking cards
       @media screen and (max-width: 991px) {
