@@ -26,10 +26,10 @@
   }
 
   .secondaryButton {
-    background-color: #b3d396;
+    background-color: #e2edd8;
   }
 
   .secondaryButton:hover {
-    background-color: #2e530d;
+    background-color: #9abc7d;
     color: white;
   }

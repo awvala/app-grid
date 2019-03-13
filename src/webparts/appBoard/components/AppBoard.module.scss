@@ -21,7 +21,7 @@
       height: auto;
 
       &:hover .card{
-        //filter:blur(1px);
+        filter:blur(1px);
         opacity:.5;
         transform: scale(.98);
         box-shadow:none;
@@ -88,7 +88,7 @@
       position: relative;
       font-size: .667rem;
       max-height: 90px;
-      overflow: hidden; //background-image: linear-gradient(to bottom, transparent, white);
+      overflow: hidden; 
       padding: 5px 10px 10px 10px;
 
       &:before {
@@ -117,7 +117,7 @@
 
       &:hover {
         background-color: #2e530d;
-        //border-bottom-right-radius: 0px;
+        border-bottom-right-radius: 0px;
     }
     }
 
