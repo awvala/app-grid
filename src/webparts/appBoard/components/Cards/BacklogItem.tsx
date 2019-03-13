@@ -2,7 +2,7 @@ import * as React from 'react';
 import styles from '../AppBoard.module.scss';
 import Moment from 'react-moment';
 import ReactHtmlParser from 'react-html-parser';
-import { PrimaryButton } from 'office-ui-fabric-react/lib/Button';
+import { BacklogModal } from '../Modals/BacklogModal';
 
 export const BacklogItem = props => {
 
@@ -10,24 +10,28 @@ export const BacklogItem = props => {
     const html = props.description;
 
     return (
-        <div className={`${styles.card} `}>
+        <div className={`${styles.card}`}>
             <header className={`ms-font-l ${styles.cardHeader}`}>
                 {props.title}
             </header>
-            <div className={`${styles.dateContainer}`}>
-                {props.targetdate ? <Moment format="MM/DD/YY">{props.targetdate}</Moment>
-                    : "TBD"
-                }
+            <div className = {`${styles.cardBody}`}>
+                <div className={`ms-fontSize-s ${styles.dateContainer}`}>
+                    {props.targetdate ? <Moment format="MM/DD/YY">{props.targetdate}</Moment>
+                        : "TBD"
+                    }
+                </div>
+                <div className={`${styles.cardDescription}`}>
+                    {ReactHtmlParser(html)}
+                </div>
             </div>
-            <p className={`ms-fontSize-sPlus ${styles.cardDescription}`}>{ReactHtmlParser(html)}</p>
-            <PrimaryButton
-                className={styles.cardButton}
-                data-automation-id={props.id}
-                text="Read More"
-                onClick={this._alertClicked}
-                allowDisabledFocus={true}
-            />
+            <div className={styles.modalWrapper}>
+                <BacklogModal
+                    Title={props.title}
+                    id={props.id}
+                    html={html}
+                    TargetDate={props.TargetDate}
+                />
+            </div>
         </div>
     );
 };
-

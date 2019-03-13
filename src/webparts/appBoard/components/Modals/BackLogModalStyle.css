@@ -1,0 +1,42 @@
+.modalContainer {
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-flow: column nowrap;
+    align-content: flex-start;
+    justify-content: flex-start;
+    min-width: 230px;
+    max-width: 50%;
+    cursor: default;
+  }
+
+  .modalHeader {
+    background-color: #648f3f;
+    color: white;
+    display: flex;
+    padding: 0px 30px;
+  }
+
+  .modalDate {
+    text-align: left;
+    padding: 10px;
+    color: #858585;
+  }
+
+  .modalBody {
+    padding: 0px 20px;
+    overflow: hidden;
+  }
+
+  .modalFooter {
+    text-align: right;
+    padding: 10px 20px;
+  }
+
+  .secondaryButton {
+    background-color: #e2edd8;
+  }
+
+  .secondaryButton:hover {
+    background-color: #9abc7d;
+    color: white;
+  }

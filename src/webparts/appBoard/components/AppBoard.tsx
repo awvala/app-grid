@@ -3,9 +3,38 @@ import styles from './AppBoard.module.scss';
 import { IAppBoardProps, WID, BoardData } from './IAppBoardProps';
 import { Spinner, SpinnerSize } from 'office-ui-fabric-react/lib/components/Spinner';
 import { Placeholder } from '@pnp/spfx-controls-react/lib/Placeholder';
+import { getId } from 'office-ui-fabric-react/lib/Utilities';
 import { escape } from '@microsoft/sp-lodash-subset';
 import { autobind } from 'office-ui-fabric-react';
 import { AadHttpClient, HttpClientResponse } from '@microsoft/sp-http';
+import { loadTheme } from 'office-ui-fabric-react/lib/Styling';
+
+loadTheme({
+  palette: {
+    themePrimary: '#648f3f',
+    themeLighterAlt: '#f8fbf5',
+    themeLighter: '#e2edd8',
+    themeLight: '#caddb8',
+    themeTertiary: '#9abc7d',
+    themeSecondary: '#739c4f',
+    themeDarkAlt: '#5a8139',
+    themeDark: '#4c6d30',
+    themeDarker: '#385023',
+    neutralLighterAlt: '#f8f8f8',
+    neutralLighter: '#f4f4f4',
+    neutralLight: '#eaeaea',
+    neutralQuaternaryAlt: '#dadada',
+    neutralQuaternary: '#d0d0d0',
+    neutralTertiaryAlt: '#c8c8c8',
+    neutralTertiary: '#c2c2c2',
+    neutralSecondary: '#858585',
+    neutralPrimaryAlt: '#4b4b4b',
+    neutralPrimary: '#333333',
+    neutralDark: '#272727',
+    black: '#1d1d1d',
+    white: '#ffffff',
+  }
+});
 
 // custom component dependancies
 import { HorizontalTabs } from './HorizontalTabs';

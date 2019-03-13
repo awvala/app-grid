@@ -14,6 +14,7 @@ export const HorizontalTabs = props => {
     let ClosedIndex: number = props.workitemsData.lanes.findIndex((item) => item.title === "Closed");
 
     return (
+        
         <div>
             <Pivot linkFormat={PivotLinkFormat.tabs} linkSize={PivotLinkSize.large} defaultSelectedKey="In-Progress">
                 <PivotItem itemIcon="Backlog" headerText="Backlog" itemKey="Backlog">
