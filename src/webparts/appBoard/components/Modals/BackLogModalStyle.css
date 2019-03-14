@@ -1,7 +1,7 @@
 .modalContainer {
     transform: translate(-50%, -50%);
     min-width: 260px;
-    max-width: 60%;
+    max-width: 40%;
     cursor: default;
   }
 
@@ -14,7 +14,6 @@
 
   .modalBody {
     padding: 5px;
-    /* display: inline-block; */
   }
 
   .modalDate {
@@ -30,7 +29,6 @@
 
   .modalVideo{
     padding: 10px;
-    /* display: inline-block; */
   }
 
   .modalFooter {
