@@ -33,4 +33,5 @@ export interface CardData {
   targetdate?: Date;
   relations?: any;
   // area?: string;
+  video?: string;
 }

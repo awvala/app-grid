@@ -1,11 +1,7 @@
 .modalContainer {
     transform: translate(-50%, -50%);
-    display: flex;
-    flex-flow: column nowrap;
-    align-content: flex-start;
-    justify-content: flex-start;
-    min-width: 230px;
-    max-width: 50%;
+    min-width: 260px;
+    max-width: 60%;
     cursor: default;
   }
 
@@ -16,15 +12,25 @@
     padding: 0px 30px;
   }
 
+  .modalBody {
+    padding: 5px;
+    /* display: inline-block; */
+  }
+
   .modalDate {
     text-align: left;
-    padding: 10px;
+    padding: 5px;
     color: #858585;
   }
 
-  .modalBody {
-    padding: 0px 20px;
+  .modalDescription {
+    padding: 0px 10px;
     overflow: hidden;
+  }
+
+  .modalVideo{
+    padding: 10px;
+    /* display: inline-block; */
   }
 
   .modalFooter {

@@ -180,10 +180,10 @@ export default class AppBoard extends React.Component<IAppBoardProps, IAppBoardS
               client
                 .get(`https://dev.azure.com/AndrewVala/_apis/wit/workitems?ids=${wIDs}&$expand=relations&api-version=5.0`, AadHttpClient.configurations.v1)
                 .then((response: HttpClientResponse) => {
-                  // console.log(response);
                   return response.json();
                 })
                 .then(json => {
+                  // console.log(json);
                   this.buildLanes(json)
                     .then((boardData) => {
                       let workItemsList = boardData;
@@ -201,14 +201,15 @@ export default class AppBoard extends React.Component<IAppBoardProps, IAppBoardS
                           startdate: items.fields["Microsoft.VSTS.Scheduling.StartDate"],
                           targetdate: items.fields["Microsoft.VSTS.Scheduling.TargetDate"],
                           relations: items.relations,
-                          // area: items.fields["Custom.Area"].toUpperCase()
+                          // area: items.fields["Custom.Area"]
+                          video: items.fields["Custom.VideoLink"]
                         });
                       });
                       this.setState({
                         data: workItemsList,
                         loading: false,
                       });
-                      // console.log(this.state.data);
+                       console.log(this.state.data);
                     });
                 });
             });
@@ -231,7 +232,7 @@ export default class AppBoard extends React.Component<IAppBoardProps, IAppBoardS
         cards: [],
       });
     });
-    console.log(boardData);
+    // console.log(boardData);
     return boardData;
   }
 
