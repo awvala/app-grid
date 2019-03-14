@@ -42,7 +42,7 @@ export class BacklogModal extends React.Component<{ Title: string, html: any, id
             </div>
 
             <div className="ms-Grid-row">
-              <div className="modalBody ms-Grid-col ms-sm12 ms-xl7 ms-xxxl9">
+              <div className={!this.props.Video ? "modalBody ms-Grid-col ms-sm12" : "modalBody ms-Grid-col ms-sm12 ms-xl7 ms-xxxl9"}>
                 <div className={`ms-fontSize-s modalDate`}>
                   {this.props.TargetDate ? <Moment format="MM/DD/YY">{this.props.TargetDate}</Moment>
                     : "TBD"
