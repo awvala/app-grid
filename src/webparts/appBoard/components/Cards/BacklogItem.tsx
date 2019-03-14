@@ -30,6 +30,7 @@ export const BacklogItem = props => {
                     id={props.id}
                     html={html}
                     TargetDate={props.TargetDate}
+                    Video={props.Video}
                 />
             </div>
         </div>

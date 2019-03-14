@@ -9,9 +9,9 @@ import { CompleteItem } from './Cards/CompleteItem';
 
 export const HorizontalTabs = props => {
 
-    let NewIndex: number = props.workitemsData.lanes.findIndex((item) => item.title === "New");
-    let ActiveIndex: number = props.workitemsData.lanes.findIndex((item) => item.title === "Active");
-    let ClosedIndex: number = props.workitemsData.lanes.findIndex((item) => item.title === "Closed");
+    const NewIndex: number = props.workitemsData.lanes.findIndex((item) => item.title === "New");
+    const ActiveIndex: number = props.workitemsData.lanes.findIndex((item) => item.title === "Active");
+    const ClosedIndex: number = props.workitemsData.lanes.findIndex((item) => item.title === "Closed");
 
     return (
         
@@ -64,6 +64,7 @@ export const HorizontalTabs = props => {
                                 startdate={card.startdate}
                                 targetdate={card.targetdate}
                                 relations={card.relations}
+                                Video={card.video}
                             />
                         )}
                     </CardContainer>

@@ -4,13 +4,14 @@ import Moment from 'react-moment';
 import ReactHtmlParser from 'react-html-parser';
 import { DefaultButton, PrimaryButton } from 'office-ui-fabric-react/lib/Button';
 import { Modal } from 'office-ui-fabric-react/lib/Modal';
+import { Video } from './Video';
 import './BackLogModalStyle.css';  // Import regular stylesheet
 
 export interface IBacklogModalState {
   showModal: boolean;
 }
 
-export class BacklogModal extends React.Component<{ Title: string, html: any, id: string, TargetDate: string }, IBacklogModalState> {
+export class BacklogModal extends React.Component<{ Title: string, html: any, id: string, TargetDate: string, Video: string }, IBacklogModalState> {
   public state: IBacklogModalState = {
     showModal: false
   };
@@ -33,24 +34,44 @@ export class BacklogModal extends React.Component<{ Title: string, html: any, id
           isBlocking={false}
           containerClassName={`modalContainer ms-slideUpIn20`}
         >
-          <header className="modalHeader">
-            <h2>{this.props.Title}</h2>
-          </header>
-          <div className={`ms-fontSize-s modalDate`}>
-            {this.props.TargetDate ? <Moment format="MM/DD/YY">{this.props.TargetDate}</Moment>
-              : "TBD"
-            }
+          <div className="ms-Grid" dir="ltr">
+            <div className="ms-Grid-row">
+              <header className="modalHeader">
+                <h2>{this.props.Title}</h2>
+              </header>
+            </div>
+
+            <div className="ms-Grid-row">
+              <div className={!this.props.Video ? "modalBody ms-Grid-col ms-sm12" : "modalBody ms-Grid-col ms-sm12 ms-xxl7"}>
+                <div className={`ms-fontSize-s modalDate`}>
+                  {this.props.TargetDate ? <Moment format="MM/DD/YY">{this.props.TargetDate}</Moment>
+                    : "TBD"
+                  }
+                </div>
+                <div className="modalDescription">
+                  {ReactHtmlParser(this.props.html)}
+                </div>
+              </div>
+
+              {!this.props.Video ? null
+                : <div className="modalVideo ms-Grid-col ms-sm12 ms-xxl5">
+                  <Video
+                    Video={this.props.Video}
+                  />
+                </div>
+              }
+            </div>
+
+            <div className="ms-Grid-row">
+              <footer className="modalFooter">
+                <DefaultButton
+                  onClick={this._closeModal}
+                  text="Close"
+                  className="secondaryButton"
+                />
+              </footer>
+            </div>
           </div>
-          <div className="modalBody">
-            {ReactHtmlParser(this.props.html)}
-          </div>
-          <footer className="modalFooter">
-            <DefaultButton
-              onClick={this._closeModal}
-              text="Close"
-              className="secondaryButton"
-            />
-          </footer>
         </Modal>
       </div>
     );
