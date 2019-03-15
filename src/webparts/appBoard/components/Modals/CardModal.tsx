@@ -7,12 +7,12 @@ import { Modal } from 'office-ui-fabric-react/lib/Modal';
 import { Video } from './Video';
 import './BackLogModalStyle.css';  // Import regular stylesheet
 
-export interface IBacklogModalState {
+export interface ICardModalState {
   showModal: boolean;
 }
 
-export class BacklogModal extends React.Component<{ Title: string, html: any, id: string, TargetDate: string, Video: string }, IBacklogModalState> {
-  public state: IBacklogModalState = {
+export class CardModal extends React.Component<{ Title: string, html: any, id: string, TargetDate: string, Video: string }, ICardModalState> {
+  public state: ICardModalState = {
     showModal: false
   };
 

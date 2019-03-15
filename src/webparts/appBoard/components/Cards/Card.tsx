@@ -2,9 +2,9 @@ import * as React from 'react';
 import styles from '../AppBoard.module.scss';
 import Moment from 'react-moment';
 import ReactHtmlParser from 'react-html-parser';
-import { BacklogModal } from '../Modals/BacklogModal';
+import { CardModal } from '../Modals/CardModal';
 
-export const BacklogItem = props => {
+export const Card = props => {
 
     // declare variable and store string with HTML to convert with the ReactHTMLParse module.
     const html = props.description;
@@ -25,7 +25,7 @@ export const BacklogItem = props => {
                 </div>
             </div>
             <div className={styles.modalWrapper}>
-                <BacklogModal
+                <CardModal
                     Title={props.title}
                     id={props.id}
                     html={html}

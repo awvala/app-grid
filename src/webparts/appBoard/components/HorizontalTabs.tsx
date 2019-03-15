@@ -3,9 +3,7 @@ import styles from './AppBoard.module.scss';
 import { PivotLinkSize, PivotLinkFormat, PivotItem, Pivot } from 'office-ui-fabric-react/lib/Pivot';
 
 import { CardContainer } from './Cards/CardContainer';
-import { BacklogItem } from './Cards/BacklogItem';
-import { InProcessItem } from './Cards/InProcessItem';
-import { CompleteItem } from './Cards/CompleteItem';
+import { Card } from './Cards/Card';
 
 export const HorizontalTabs = props => {
 
@@ -20,7 +18,7 @@ export const HorizontalTabs = props => {
                 <PivotItem itemIcon="Backlog" headerText="Backlog" itemKey="Backlog">
                     <CardContainer>
                         {props.workitemsData.lanes[NewIndex].cards.map((card) =>
-                            <BacklogItem
+                            <Card
                                 id={card.id}
                                 title={card.title}
                                 description={card.description}
@@ -37,7 +35,7 @@ export const HorizontalTabs = props => {
                 <PivotItem itemIcon="DeveloperTools" headerText="In-Progress" itemKey="In-Progress">
                     <CardContainer>
                         {props.workitemsData.lanes[ActiveIndex].cards.map((card) =>
-                            <InProcessItem
+                            <Card
                                 id={card.id}
                                 title={card.title}
                                 description={card.description}
@@ -54,7 +52,7 @@ export const HorizontalTabs = props => {
                 <PivotItem itemIcon="Completed" headerText="Complete" itemKey="Complete">
                     <CardContainer>
                         {props.workitemsData.lanes[ClosedIndex].cards.map((card) =>
-                            <CompleteItem
+                            <Card
                                 id={card.id}
                                 title={card.title}
                                 description={card.description}
