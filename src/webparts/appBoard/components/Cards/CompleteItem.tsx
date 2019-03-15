@@ -8,7 +8,6 @@ export const CompleteItem = props => {
 
     // declare variable and store string with HTML to convert with the ReactHTMLParse module.
     const html = props.description;
-    console.log(props.Video);
 
     return (
         <div className={`${styles.card}`}>
