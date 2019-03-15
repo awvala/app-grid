@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styles from '../AppBoard.module.scss';
+import styles from './CardModal.module.scss';
 import ReactPlayer from 'react-player';
 
 

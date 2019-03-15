@@ -1,3 +1,14 @@
+@import '~@microsoft/sp-office-ui-fabric-core/dist/sass/SPFabricCore.scss';
+
+.cardButton {
+  float: right;
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: auto;
+  overflow: hidden;
+  border-bottom-right-radius: 4px;
+}
+
 .modalContainer {
     transform: translate(-50%, -50%);
     min-width: 260px;
@@ -44,3 +55,16 @@
     background-color: #9abc7d;
     color: white;
   }
+
+  // Video player
+    .playerWrapper {
+      position: relative;
+      padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
+      max-height: 250px;
+    }
+     
+    .reactPlayer {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }

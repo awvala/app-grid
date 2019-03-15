@@ -11,7 +11,6 @@
       text-align: center;
     }
 
-
     .viewContainer {
       display: flex;
       flex-flow: row wrap;
@@ -43,9 +42,6 @@
       height: auto;
       border-radius: 4px;
       text-align: left;
-      // box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.2), 
-      // 0px 1px 1px 0px rgba(0,0,0,0.14), 
-      // 0px 2px 1px -1px rgba(0,0,0,0.12);
       box-shadow:0 2px 3px 0px rgba(0,0,0,0.25);
       border-radius:3px;
       transition:.2s all;
@@ -53,11 +49,6 @@
       transition: all 0.25s ease-in;
       border-bottom: 0px solid transparent;
       cursor: default;
-
-      // &:hover {
-      // transform: translateY(-5px);
-      // border-bottom: 5px solid #fff;
-      // }
 
       //media queries for stacking cards
       @media screen and (max-width: 991px) {
@@ -112,37 +103,10 @@
       margin: 10px;
     }
 
-    .cardButton {
-      float: right;
-      text-align: center;
-      text-transform: uppercase;
-      margin-top: auto;
-      overflow: hidden;
-      background-color: #4a7524;
-      border-bottom-right-radius: 4px;
-
-      &:hover {
-        background-color: #2e530d;
-        border-bottom-right-radius: 0px;
-    }
-    }
-
-  // Modals
+  // Modal Read More Button
     .modalWrapper {
       margin-top: auto;
   }
 
 }
 
-  // Video player
-  .playerWrapper {
-    position: relative;
-    padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
-    max-height: 250px;
-  }
-   
-  .reactPlayer {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }

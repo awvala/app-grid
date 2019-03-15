@@ -3,10 +3,13 @@ import styles from './AppBoard.module.scss';
 import { IAppBoardProps, WID, BoardData } from './IAppBoardProps';
 import { Spinner, SpinnerSize } from 'office-ui-fabric-react/lib/components/Spinner';
 import { Placeholder } from '@pnp/spfx-controls-react/lib/Placeholder';
-import { getId } from 'office-ui-fabric-react/lib/Utilities';
 import { escape } from '@microsoft/sp-lodash-subset';
 import { autobind } from 'office-ui-fabric-react';
 import { AadHttpClient, HttpClientResponse } from '@microsoft/sp-http';
+
+/*
+  * Resets the application theme
+*/
 import { loadTheme } from 'office-ui-fabric-react/lib/Styling';
 
 loadTheme({
