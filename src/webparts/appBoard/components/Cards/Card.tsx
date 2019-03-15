@@ -4,7 +4,7 @@ import Moment from 'react-moment';
 import ReactHtmlParser from 'react-html-parser';
 import { BacklogModal } from '../Modals/BacklogModal';
 
-export const BacklogItem = props => {
+export const Card = props => {
 
     // declare variable and store string with HTML to convert with the ReactHTMLParse module.
     const html = props.description;
