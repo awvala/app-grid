@@ -29,7 +29,7 @@ export const Card = props => {
                     Title={props.title}
                     id={props.id}
                     html={html}
-                    TargetDate={props.TargetDate}
+                    TargetDate={props.targetdate}
                     Video={props.Video}
                 />
             </div>
