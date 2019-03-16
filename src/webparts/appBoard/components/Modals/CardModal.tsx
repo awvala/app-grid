@@ -49,7 +49,7 @@ export class CardModal extends React.Component<ICardModalProps, ICardModalState>
             </div>
 
             <div className="ms-Grid-row">
-              <div className={!this.props.Video ? "modalBody ms-Grid-col ms-sm12" : "modalBody ms-Grid-col ms-sm12 ms-xxl7"}>
+              <div className={!this.props.Video ? "ms-Grid-col ms-sm12" : "ms-Grid-col ms-sm12 ms-xxl7"}>
                 <div className={`ms-fontSize-s ${styles.modalDate}`}>
                   {this.props.TargetDate ? <Moment format="MM/DD/YY">{this.props.TargetDate}</Moment>
                     : "TBD"
