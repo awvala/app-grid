@@ -14,7 +14,7 @@ export const HorizontalTabs = props => {
     return (
         
         <div>
-            <Pivot linkFormat={PivotLinkFormat.tabs} linkSize={PivotLinkSize.large} defaultSelectedKey="In-Progress">
+            <Pivot linkFormat={PivotLinkFormat.tabs} linkSize={PivotLinkSize.large} defaultSelectedKey="In-Progress" >
                 <PivotItem itemIcon="Backlog" headerText="Backlog" itemKey="Backlog">
                     <CardContainer>
                         {props.workitemsData.lanes[NewIndex].cards.map((card) =>

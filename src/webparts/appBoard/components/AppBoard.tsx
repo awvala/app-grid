@@ -6,6 +6,7 @@ import { Placeholder } from '@pnp/spfx-controls-react/lib/Placeholder';
 import { escape } from '@microsoft/sp-lodash-subset';
 import { autobind } from 'office-ui-fabric-react';
 import { AadHttpClient, HttpClientResponse } from '@microsoft/sp-http';
+import { HorizontalTabs } from './HorizontalTabs';
 
 /*
   * Resets the application theme
@@ -39,8 +40,7 @@ loadTheme({
   }
 });
 
-// custom component dependancies
-import { HorizontalTabs } from './HorizontalTabs';
+
 
 export interface IAppBoardState {
   loading?: boolean;
@@ -172,8 +172,8 @@ export default class AppBoard extends React.Component<IAppBoardProps, IAppBoardS
               return response.json();
             })
             .then((response) => {
-              let wIDS = new Array;
-              let lists: WID[] = response.workItems;
+              const wIDS = new Array;
+              const lists: WID[] = response.workItems;
               lists.forEach((list: WID) => {
                 wIDS.push(list.id);
               });
@@ -189,11 +189,11 @@ export default class AppBoard extends React.Component<IAppBoardProps, IAppBoardS
                   // console.log(json);
                   this.buildLanes(json)
                     .then((boardData) => {
-                      let workItemsList = boardData;
+                      const workItemsList = boardData;
 
                       json.value.map((items: any) => {
                         const tempState = items.fields["System.State"];
-                        let laneIndex = workItemsList.lanes.findIndex((item) => item.title === tempState);
+                        const laneIndex = workItemsList.lanes.findIndex((item) => item.title === tempState);
 
                         workItemsList.lanes[laneIndex].cards.push({
                           id: items.id,
@@ -220,11 +220,11 @@ export default class AppBoard extends React.Component<IAppBoardProps, IAppBoardS
     }
   }
 
-  // Get the State values from the API results to construct Lanes and place them into the BoardData structure.
+  // Get unique State values from  API results to construct Lanes and place them in the BoardData structure.
   protected buildLanes = async (json): Promise<BoardData> => {
-    let uniqueStates = Array.from(new Set(json.value.map(item => item.fields["System.State"])));
+    const uniqueStates = Array.from(new Set(json.value.map(item => item.fields["System.State"])));
     // console.log(uniqueStates);
-    let boardData = {
+    const boardData = {
       lanes: [],
     };
 
