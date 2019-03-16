@@ -40,8 +40,6 @@ loadTheme({
   }
 });
 
-
-
 export interface IAppBoardState {
   loading?: boolean;
   showPlaceholder?: boolean;
@@ -163,6 +161,7 @@ export default class AppBoard extends React.Component<IAppBoardProps, IAppBoardS
       });
       // console.log(this.state.data);
     } else {
+      // Get WorkItem ID's from first DevOps API call
       this.props.context.aadHttpClientFactory
         .getClient('499b84ac-1321-427f-aa17-267ca6975798')
         .then((client: AadHttpClient): void => {
@@ -171,6 +170,7 @@ export default class AppBoard extends React.Component<IAppBoardProps, IAppBoardS
             .then((response: HttpClientResponse) => {
               return response.json();
             })
+            // Convert json results into array of ID's for second API call to DevOps project.
             .then((response) => {
               const wIDS = new Array;
               const lists: WID[] = response.workItems;
@@ -179,6 +179,7 @@ export default class AppBoard extends React.Component<IAppBoardProps, IAppBoardS
               });
               return wIDS;
             })
+            // Make second API call with all relevant ID's and expand fields and relationship json results
             .then((wIDs) => {
               client
                 .get(`https://dev.azure.com/AndrewVala/_apis/wit/workitems?ids=${wIDs}&$expand=relations&api-version=5.0`, AadHttpClient.configurations.v1)
@@ -187,10 +188,12 @@ export default class AppBoard extends React.Component<IAppBoardProps, IAppBoardS
                 })
                 .then(json => {
                   // console.log(json);
+                  // Convert API results into data structure we can use build Pivot navigation element in Horizontal Tabs component
                   this.buildLanes(json)
                     .then((boardData) => {
                       const workItemsList = boardData;
 
+                      // Conditionally add each workitem to the correct Lane array based on its State value and get the index of that State array object.
                       json.value.map((items: any) => {
                         const tempState = items.fields["System.State"];
                         const laneIndex = workItemsList.lanes.findIndex((item) => item.title === tempState);
@@ -220,21 +223,12 @@ export default class AppBoard extends React.Component<IAppBoardProps, IAppBoardS
     }
   }
 
-  // Get unique State values from  API results to construct Lanes and place them in the BoardData structure.
+  // Get unique State values from API results to construct Lanes and place them in the BoardData structure.
   protected buildLanes = async (json): Promise<BoardData> => {
+    const boardData = { lanes: [], };
     const uniqueStates = Array.from(new Set(json.value.map(item => item.fields["System.State"])));
-    // console.log(uniqueStates);
-    const boardData = {
-      lanes: [],
-    };
 
-    uniqueStates.map((items: any) => {
-      boardData.lanes.push({
-        id: items,
-        title: items,
-        cards: [],
-      });
-    });
+    uniqueStates.map((items: any) => { boardData.lanes.push({ id: items,title: items,cards: [],});});
     // console.log(boardData);
     return boardData;
   }
