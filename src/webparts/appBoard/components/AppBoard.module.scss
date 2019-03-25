@@ -61,11 +61,11 @@
     }
 
     .cardHeader {
-      background-color: #648f3f;
+      background-color: $ms-color-themePrimary;
       padding: 10px;
       border-top-left-radius: 4px;
       border-top-right-radius: 4px;
-      color: white;
+      color: $ms-color-white;
       text-align: center;
     }
 
@@ -77,7 +77,7 @@
     .dateContainer {
       text-align: right;
       padding: 0px 10px;
-      color: #858585;
+      color: $ms-color-neutralSecondary;
       font-size: .6rem;
     }
 
@@ -95,7 +95,7 @@
         position:absolute;
         left:0;
         top:0;
-        background:linear-gradient(transparent 74px, white);
+        background:linear-gradient(transparent 74px, $ms-color-white);
        }
     }
 

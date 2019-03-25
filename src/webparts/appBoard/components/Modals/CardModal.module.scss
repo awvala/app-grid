@@ -17,8 +17,8 @@
   }
 
   .modalHeader {
-    background-color: #648f3f;
-    color: white;
+    background-color: $ms-color-themePrimary;
+    color: $ms-color-white;
     display: flex;
     padding: 0px 30px;
   }
@@ -30,7 +30,7 @@
   .modalDate {
     text-align: right;
     padding: 5px;
-    color: #858585;
+    color: $ms-color-neutralSecondary;
   }
 
   .modalDescription {
@@ -48,12 +48,12 @@
   }
 
   .secondaryButton {
-    background-color: #e2edd8;
+    background-color: $ms-color-themeLighter;
   }
 
   .secondaryButton:hover {
-    background-color: #9abc7d;
-    color: white;
+    background-color: $ms-color-themeTertiary;
+    color: $ms-color-white;
   }
 
   // Video player

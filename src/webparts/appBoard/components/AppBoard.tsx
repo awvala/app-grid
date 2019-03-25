@@ -11,19 +11,19 @@ import { HorizontalTabs } from './HorizontalTabs';
 /*
   * Resets the application theme
 */
-import { loadTheme } from 'office-ui-fabric-react/lib/Styling';
+import { loadTheme } from 'office-ui-fabric-react';
 
 loadTheme({
   palette: {
-    themePrimary: '#648f3f',
-    themeLighterAlt: '#f8fbf5',
-    themeLighter: '#e2edd8',
-    themeLight: '#caddb8',
-    themeTertiary: '#9abc7d',
-    themeSecondary: '#739c4f',
-    themeDarkAlt: '#5a8139',
-    themeDark: '#4c6d30',
-    themeDarker: '#385023',
+    themePrimary: '#1e9d8b',
+    themeLighterAlt: '#f3fbfa',
+    themeLighter: '#d0efeb',
+    themeLight: '#abe2da',
+    themeTertiary: '#65c5b7',
+    themeSecondary: '#31aa98',
+    themeDarkAlt: '#1b8e7d',
+    themeDark: '#17786a',
+    themeDarker: '#11594e',
     neutralLighterAlt: '#f8f8f8',
     neutralLighter: '#f4f4f4',
     neutralLight: '#eaeaea',
